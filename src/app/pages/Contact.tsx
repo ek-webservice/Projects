@@ -29,7 +29,7 @@ export function Contact() {
       icon: Mail,
       title: 'Email',
       content: 'info@ek-webservice.de',
-      link: 'mailto:info@ek-webservice.de',
+      link: 'mailto:info@ek-webservice.com',
     },
     {
       icon: Phone,
