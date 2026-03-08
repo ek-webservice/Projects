@@ -1,8 +1,10 @@
 import { GlassCard } from '../components/GlassCard';
 import { Mail, Clock, MapPin, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,8 +15,40 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Vielen Dank für Ihre Nachricht! Wir melden uns in Kürze bei Ihnen.');
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    const serviceID = 'service_5nxhlyg';
+    const publicKey = '0yrB9Zydld6zWrsRY';
+
+    // Deine Template IDs
+    const templateIDCustomer = 'template_6sjduph'; // An den Kunden
+    const templateIDAdmin = 'template_b9h7qz8';    // An dich (EK-Webservice)
+
+    // Die Parameter müssen exakt so heißen wie die {{variablen}} in deinen EmailJS Templates
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      title: formData.subject,
+      message: formData.message,
+    };
+
+    // Beide Emails parallel absenden
+    const sendToAdmin = emailjs.send(serviceID, templateIDAdmin, templateParams, publicKey);
+    const sendToCustomer = emailjs.send(serviceID, templateIDCustomer, templateParams, publicKey);
+
+    Promise.all([sendToAdmin, sendToCustomer])
+        .then((responses) => {
+          console.log('SUCCESS!', responses);
+          alert('Vielen Dank! Wir haben Ihre Nachricht erhalten und Ihnen eine Bestätigung per E-Mail gesendet.');
+          setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+          setIsSubmitting(false);
+        })
+        .catch((err) => {
+          console.error('FAILED...', err);
+          alert('Da ist etwas schiefgelaufen. Bitte senden Sie uns direkt eine Mail an info@ek-webservice.com');
+          setIsSubmitting(false);
+        });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -54,7 +88,6 @@ export function Contact() {
   return (
       <div className="pt-24 min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-          {/* Header */}
           <div className="text-center mb-12 md:mb-20">
             <h1 className="text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent font-bold">
               Kontakt
@@ -65,21 +98,9 @@ export function Contact() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            {/* Contact Info Cards */}
             <div className="lg:col-span-1 space-y-4 md:space-y-6">
               {contactInfo.map((info, index) => {
                 const Icon = info.icon;
-                const content = info.link ? (
-                    <a
-                        href={info.link}
-                        className="text-blue-600 hover:text-blue-700 transition-colors break-words"
-                    >
-                      {info.content}
-                    </a>
-                ) : (
-                    <p className="text-black/80">{info.content}</p>
-                );
-
                 return (
                     <GlassCard key={index} className="p-4 md:p-6" hover>
                       <div className="flex items-start gap-3 md:gap-4">
@@ -88,7 +109,15 @@ export function Contact() {
                         </div>
                         <div className="flex-1 overflow-hidden">
                           <h3 className="font-semibold mb-1">{info.title}</h3>
-                          <div className="text-sm md:text-base">{content}</div>
+                          <div className="text-sm md:text-base">
+                            {info.link ? (
+                                <a href={info.link} className="text-blue-600 hover:text-blue-700 transition-colors break-words">
+                                  {info.content}
+                                </a>
+                            ) : (
+                                <p className="text-black/80">{info.content}</p>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </GlassCard>
@@ -97,16 +126,9 @@ export function Contact() {
 
               <GlassCard className="p-4 md:p-6">
                 <h3 className="font-semibold mb-3">Folgen Sie uns</h3>
-                <p className="text-black/70 text-sm mb-4">
-                  Bleiben Sie auf dem Laufenden über unsere neuesten Projekte.
-                </p>
                 <div className="flex gap-3">
                   {['facebook', 'twitter', 'linkedin', 'instagram'].map((social) => (
-                      <a
-                          key={social}
-                          href="#"
-                          className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-colors"
-                      >
+                      <a key={social} href="#" className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-colors">
                         {social[0].toUpperCase()}
                       </a>
                   ))}
@@ -114,7 +136,6 @@ export function Contact() {
               </GlassCard>
             </div>
 
-            {/* Contact Form */}
             <div className="lg:col-span-2">
               <GlassCard className="p-6 md:p-8">
                 <h2 className="text-2xl md:text-3xl mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent font-bold">
@@ -175,20 +196,20 @@ export function Contact() {
 
                   <button
                       type="submit"
-                      className="w-full md:w-auto px-8 py-3 md:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all shadow-lg hover:shadow-xl hover:shadow-blue-500/50 flex items-center justify-center gap-2 group"
+                      disabled={isSubmitting}
+                      className="w-full md:w-auto px-8 py-3 md:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all shadow-lg hover:shadow-xl hover:shadow-blue-500/50 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Nachricht senden
-                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    {isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}
+                    {!isSubmitting && <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
                   </button>
                 </form>
               </GlassCard>
             </div>
           </div>
 
-          {/* Map Placeholder - Responsive Layout */}
           <div className="flex lg:justify-end mt-12">
-            <GlassCard className="overflow-hidden w-full lg:w-3/3">
-              <div className="w-full h-64 md:h-96">
+            <GlassCard className="overflow-hidden w-full lg:w-full">
+              <div className="w-full h-64 md:h-96 lg:h-[500px]">
                 <iframe
                     title="EK-Webservice Standort"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43583.5658603681!2d7.404207914041007!3d46.94792222339599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e39c0d45f0967%3A0x180f68153403a45c!2sBern%2C%20Schweiz!5e0!3m2!1sde!2sde!4v1710000000000!5m2!1sde!2sde"
