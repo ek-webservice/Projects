@@ -28,7 +28,7 @@ export function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      content: 'info@ek-webservice.de',
+      content: 'info@ek-webservice.com',
       link: 'mailto:info@ek-webservice.com',
     },
     {
