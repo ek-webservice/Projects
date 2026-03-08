@@ -135,7 +135,7 @@ export function Contact() {
                       <input
                           type="email" id="email" name="email" value={formData.email} onChange={handleChange} required
                           className="w-full px-4 py-3 rounded-xl bg-white/60 border border-white/80 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
-                          placeholder="ihre@email.de"
+                          placeholder="ihre@email.com"
                       />
                     </div>
                   </div>

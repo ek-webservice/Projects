@@ -12,7 +12,7 @@ export function About() {
       image: erblinImg,
       description:
           'Mit Fokus auf Frontend-Entwicklung und UI/UX-Design gestalte ich Websites, die technisch zuverlässig und zugleich benutzerfreundlich sind. Kreativität und Liebe zum Detail treiben mich an, moderne und responsive Interfaces zu entwickeln, die Freude beim Nutzer erzeugen.',
-      email: 'erblin.guri@ek-webservice.de',
+      email: 'erblin.guri@ek-webservice.com',
       linkedin: 'https://linkedin.com/in/erblin-guri-6592813b5',
     },
     {
@@ -21,7 +21,7 @@ export function About() {
       image: kavisanImg,
       description:
           'Als Fullstack Developer und Applikationsentwickler im 2. Lehrjahr arbeite ich sowohl im Frontend als auch im Backend. Ich kombiniere technisches Know-how mit Kreativität, um moderne Websites zu entwickeln, die sowohl performant als auch optisch ansprechend sind',
-      email: 'kavisan.krishnamoorthy@ek-webservice.de',
+      email: 'kavisan.krishnamoorthy@ek-webservice.com',
       linkedin: 'https://linkedin.com/in/kavisan-krishnamoorthy-43827b3b5',
     },
   ];
