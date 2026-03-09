@@ -68,8 +68,8 @@ export function Contact() {
     {
       icon: Phone,
       title: 'Telefon',
-      content: '+41 70 123 45 67',
-      link: 'tel:+491234567890',
+      content: '+41 76 687 40 79',
+      link: 'tel:+41766874079',
     },
     {
       icon: Clock,

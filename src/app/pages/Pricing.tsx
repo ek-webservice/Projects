@@ -5,19 +5,19 @@ import { Check, ArrowRight, Sparkles } from 'lucide-react';
 export function Pricing() {
   const pricingPlans = [
     {
-      name: 'Starter', price: '1.499 CHF', description: 'Perfekt für kleine Unternehmen und Startups', popular: false,
+      name: 'Starter', price: '449 CHF', description: 'Perfekt für kleine Unternehmen und Startups', popular: false,
       features: ['Bis zu 5 Seiten', 'Responsive Design', 'Basis SEO-Optimierung', 'Kontaktformular', '3 Monate Support', 'Google Analytics Integration'],
     },
     {
-      name: 'Business', price: '2.999 CHF', description: 'Ideal für wachsende Unternehmen', popular: true,
+      name: 'Business', price: '899 CHF', description: 'Ideal für wachsende Unternehmen', popular: true,
       features: ['Bis zu 15 Seiten', 'Premium Design', 'Erweiterte SEO-Optimierung', 'Content Management System', '6 Monate Support', 'Google Analytics Integration', 'Social Media Integration', 'Newsletter-Funktion'],
     },
     {
-      name: 'Enterprise', price: '5.999 CHF', description: 'Für umfangreiche Projekte und E-Commerce', popular: false,
+      name: 'Enterprise', price: '1499 CHF', description: 'Für umfangreiche Projekte und E-Commerce', popular: false,
       features: ['Unbegrenzte Seiten', 'Custom Design & Features', 'Vollständige SEO-Suite', 'E-Commerce Funktionen', '12 Monate Support', 'Alle Integrationen', 'Mehrsprachigkeit', 'Performance-Optimierung', 'Schulung & Dokumentation'],
     },
     {
-      name: 'Wartung', price: 'ab 99 CHF', description: 'Monatliche Wartung & Updates', popular: false, priceNote: 'pro Monat',
+      name: 'Wartung', price: 'ab 119 CHF', description: 'Monatliche Wartung & Updates', popular: false, priceNote: 'pro Monat',
       features: ['Regelmäßige Updates', 'Sicherheits-Monitoring', 'Performance-Checks', 'Content-Aktualisierung', 'Backup-Service', 'Prioritäts-Support'],
     },
   ];
