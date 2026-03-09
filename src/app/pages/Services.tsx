@@ -29,12 +29,18 @@ export function Services() {
 
   const portfolioProjects = [
     {
-      title: 'Modern E-Commerce Platform', description: 'Eine vollständige E-Commerce-Lösung mit Warenkorb, Zahlungsintegration und Admin-Panel', tags: ['React', 'TypeScript', 'Tailwind CSS'],
-      image: 'https://images.unsplash.com/photo-1687524690542-2659f268cde8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlJTIwZXhhbXBsZXxlbnwxfHx8fDE3NzI3MDMwMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+      title: 'EK-Garage',
+      description: 'Ein moderner Webauftritt für die EK-Garage mit Fokus auf Benutzerfreundlichkeit und Design.',
+      tags: ['React', 'Vite', 'Tailwind CSS'],
+      image: '../public/ek_garage.png',
+      link: 'https://garage.ek-webservice.com' // Deine neue Subdomain
     },
     {
-      title: 'Corporate Business Website', description: 'Professionelle Unternehmenswebsite mit CMS, Blog und Kontaktformular', tags: ['Next.js', 'CMS', 'SEO'],
+      title: 'Corporate Business Website',
+      description: 'Professionelle Unternehmenswebsite mit CMS, Blog und Kontaktformular',
+      tags: ['Next.js', 'CMS', 'SEO'],
       image: 'https://images.unsplash.com/photo-1772037441147-5301691c4b57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWJzaXRlJTIwZGVzaWduJTIwbW9ja3VwfGVufDF8fHx8MTc3MjYzMjc1Nnww&ixlib=rb-4.1.0&q=80&w=1080',
+      link: '#' // Platzhalter für weitere Projekte
     },
   ];
 
@@ -96,28 +102,36 @@ export function Services() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {portfolioProjects.map((project, index) => (
-                  <GlassCard key={index} className="overflow-hidden group h-full flex flex-col" hover>
-                    <div className="aspect-video relative overflow-hidden">
-                      <ImageWithFallback
-                          src={project.image} alt={project.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <ExternalLink className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                  <a
+                      key={index}
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-full no-underline"
+                  >
+                    <GlassCard className="overflow-hidden group h-full flex flex-col cursor-pointer" hover>
+                      <div className="aspect-video relative overflow-hidden">
+                        <ImageWithFallback
+                            src={project.image} alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <ExternalLink className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                        </div>
                       </div>
-                    </div>
-                    <div className="p-5 md:p-6 flex-grow flex flex-col">
-                      <h3 className="text-lg md:text-xl font-semibold mb-2">{project.title}</h3>
-                      <p className="text-black/70 mb-4 text-sm md:text-base flex-grow">{project.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, idx) => (
-                            <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs md:text-sm font-medium">
-                        {tag}
-                      </span>
-                        ))}
+                      <div className="p-5 md:p-6 flex-grow flex flex-col">
+                        <h3 className="text-lg md:text-xl font-semibold mb-2">{project.title}</h3>
+                        <p className="text-black/70 mb-4 text-sm md:text-base flex-grow">{project.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag, idx) => (
+                              <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs md:text-sm font-medium">
+                          {tag}
+                        </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </GlassCard>
+                    </GlassCard>
+                  </a>
               ))}
             </div>
           </div>
