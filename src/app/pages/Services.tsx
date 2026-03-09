@@ -32,7 +32,7 @@ export function Services() {
       title: 'EK-Garage',
       description: 'Ein moderner Webauftritt für die EK-Garage mit Fokus auf Benutzerfreundlichkeit und Design.',
       tags: ['React', 'Vite', 'Tailwind CSS'],
-      image: '../public/ek_garage.png',
+      image: '/ek_garage.png',
       link: 'https://garage.ek-webservice.com' // Deine neue Subdomain
     },
     {
