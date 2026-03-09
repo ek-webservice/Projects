@@ -20,11 +20,9 @@ export function Contact() {
     const serviceID = 'service_5nxhlyg';
     const publicKey = '0yrB9Zydld6zWrsRY';
 
-    // Deine Template IDs
-    const templateIDCustomer = 'template_6sjduph'; // An den Kunden
-    const templateIDAdmin = 'template_b9h7qz8';    // An dich (EK-Webservice)
+    const templateIDCustomer = 'template_6sjduph';
+    const templateIDAdmin = 'template_b9h7qz8';
 
-    // Die Parameter müssen exakt so heißen wie die {{variablen}} in deinen EmailJS Templates
     const templateParams = {
       name: formData.name,
       email: formData.email,
@@ -33,7 +31,6 @@ export function Contact() {
       message: formData.message,
     };
 
-    // Beide Emails parallel absenden
     const sendToAdmin = emailjs.send(serviceID, templateIDAdmin, templateParams, publicKey);
     const sendToCustomer = emailjs.send(serviceID, templateIDCustomer, templateParams, publicKey);
 
@@ -68,8 +65,11 @@ export function Contact() {
     {
       icon: Phone,
       title: 'Telefon',
-      content: '+41 76 687 40 79',
-      link: 'tel:+41766874079',
+      // Hier sind nun beide Nummern einzeln definiert
+      phones: [
+        { label: '+41 76 687 40 79', link: 'tel:+41766874079' },
+        { label: '+41 79 966 42 31', link: 'tel:+41799664231' },
+      ],
     },
     {
       icon: Clock,
@@ -109,8 +109,19 @@ export function Contact() {
                         </div>
                         <div className="flex-1 overflow-hidden">
                           <h3 className="font-semibold mb-1">{info.title}</h3>
-                          <div className="text-sm md:text-base">
-                            {info.link ? (
+                          <div className="text-sm md:text-base flex flex-col">
+                            {/* Logik für mehrere Telefonnummern */}
+                            {info.phones ? (
+                                info.phones.map((phone, pIndex) => (
+                                    <a
+                                        key={pIndex}
+                                        href={phone.link}
+                                        className="text-blue-600 hover:text-blue-700 transition-colors"
+                                    >
+                                      {phone.label}
+                                    </a>
+                                ))
+                            ) : info.link ? (
                                 <a href={info.link} className="text-blue-600 hover:text-blue-700 transition-colors break-words">
                                   {info.content}
                                 </a>

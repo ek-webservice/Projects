@@ -45,12 +45,12 @@ export function Footer() {
             <h4 className="font-bold mb-4">Rechtliches</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-white/70 hover:text-blue-400 transition-colors">
+                <a href="/impressum" className="text-white/70 hover:text-blue-400 transition-colors">
                   Impressum
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-blue-400 transition-colors">
+                <a href="/datenschutz" className="text-white/70 hover:text-blue-400 transition-colors">
                   Datenschutz
                 </a>
               </li>
