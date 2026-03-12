@@ -56,7 +56,7 @@ export function Home() {
                 Professionelle Websites für dein Business
               </h1>
               <p className="text-lg md:text-xl lg:text-2xl text-black/80 mb-8 max-w-2xl mx-auto">
-                Wir entwickeln moderne, performante und benutzerfreundliche Websites,
+                Wir entwickeln moderne, performante, benutzerfreundliche und günstige Websites,
                 die Ihr Unternehmen digital erfolgreich machen.
               </p>
               <Link

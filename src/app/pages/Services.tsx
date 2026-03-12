@@ -26,21 +26,20 @@ export function Services() {
       features: ['On-Page SEO', 'Meta-Tags Optimierung', 'Ladezeiten-Optimierung', 'Mobile Optimierung'],
     },
   ];
-
   const portfolioProjects = [
     {
       title: 'EK-Garage',
-      description: 'Ein moderner Webauftritt für die EK-Garage mit Fokus auf Benutzerfreundlichkeit und Design.',
-      tags: ['React', 'Vite', 'Tailwind CSS'],
+      description: 'Ein moderner Webauftritt für die EK-Garage mit Fokus auf ansprechendes Design und einfache Bedienung für Kunden.',
+      tags: ['Modernes Design', 'Responsive Layout', 'Benutzerfreundlich'],
       image: '/ek_garage.png',
       link: 'https://garage.ek-webservice.com' // Deine neue Subdomain
     },
     {
-      title: 'Corporate Business Website',
-      description: 'Professionelle Unternehmenswebsite mit CMS, Blog und Kontaktformular',
-      tags: ['Next.js', 'CMS', 'SEO'],
-      image: 'https://images.unsplash.com/photo-1772037441147-5301691c4b57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWJzaXRlJTIwZGVzaWduJTIwbW9ja3VwfGVufDF8fHx8MTc3MjYzMjc1Nnww&ixlib=rb-4.1.0&q=80&w=1080',
-      link: '#' // Platzhalter für weitere Projekte
+      title: 'EK Coiffeur',
+      description: 'Webseite für EK Coiffeur – stilvoll, modern und mobilfreundlich. Ideal, um Services, Öffnungszeiten und Kontaktmöglichkeiten einfach zu präsentieren.',
+      tags: ['Modernes Design', 'Responsive Layout', 'Einfach zu navigieren'],
+      image: '/ek_coiffeur.png',
+      link: 'https://coiffeur.ek-webservice.com'
     },
   ];
 

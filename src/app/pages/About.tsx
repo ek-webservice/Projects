@@ -11,7 +11,7 @@ export function About() {
       role: 'Fullstack Developer & CEO',
       image: erblinImg,
       description:
-          'Mit Fokus auf Frontend-Entwicklung und UI/UX-Design gestalte ich Websites, die technisch zuverlässig und zugleich benutzerfreundlich sind. Kreativität und Liebe zum Detail treiben mich an, moderne und responsive Interfaces zu entwickeln, die Freude beim Nutzer erzeugen.',
+          'Im 2. Lehrjahr meiner Ausbildung zum Applikationsentwickler und Fullstack-Developer erweitere ich mein Wissen stetig und setze es in praxisnahen Projekten ein. Dabei lege ich besonderen Wert auf sauberen Code, effiziente Prozesse und benutzerfreundliche Anwendungen, die den Anforderungen moderner Software gerecht werden.',
       email: 'erblin.guri@ek-webservice.com',
       linkedin: 'https://linkedin.com/in/erblin-guri-6592813b5',
     },
@@ -20,7 +20,7 @@ export function About() {
       role: 'Fullstack Developer & CEO',
       image: kavisanImg,
       description:
-          'Als Fullstack Developer und Applikationsentwickler im 2. Lehrjahr arbeite ich sowohl im Frontend als auch im Backend. Ich kombiniere technisches Know-how mit Kreativität, um moderne Websites zu entwickeln, die sowohl performant als auch optisch ansprechend sind',
+          'Als Fullstack Developer und Applikationsentwickler im 2. Lehrjahr arbeite ich sowohl im Frontend als auch im Backend. Ich kombiniere technisches Know-how mit Kreativität, um moderne Websites zu entwickeln, setze kreative Lösungen um die sowohl performant als auch optisch ansprechend sind',
       email: 'kavisan.krishnamoorthy@ek-webservice.com',
       linkedin: 'https://linkedin.com/in/kavisan-krishnamoorthy-43827b3b5',
     },
@@ -40,19 +40,35 @@ export function About() {
             </p>
           </div>
 
-          {/* Mission Statement */}
-          <GlassCard className="p-6 md:p-12 mb-16 md:mb-20 max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl mb-4 md:mb-6 text-center bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent font-bold">
-              Unsere Mission
-            </h2>
-            <p className="text-base md:text-lg text-black/80 text-center leading-relaxed">
-              Bei EK-Webservice verbinden wir technische Exzellenz mit kreativem Design.
-              Unser Ziel ist es, Unternehmen jeder Größe dabei zu helfen, ihre digitale
-              Präsenz zu optimieren und online erfolgreich zu sein. Wir glauben daran,
-              dass eine großartige Website mehr ist als nur Code – sie ist das digitale
-              Gesicht Ihres Unternehmens.
-            </p>
-          </GlassCard>
+          {/* Mission + Preis Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            {/* Mission Statement */}
+            <GlassCard className="p-6 md:p-12">
+              <h2 className="text-2xl md:text-3xl mb-4 md:mb-6 text-center bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent font-bold">
+                Unsere Mission
+              </h2>
+              <p className="text-base md:text-lg text-black/80 text-center leading-relaxed">
+                Bei EK-Webservice verbinden wir technische Exzellenz mit kreativem Design.
+                Unser Ziel ist es, Unternehmen jeder Größe dabei zu helfen, ihre digitale
+                Präsenz zu optimieren und online erfolgreich zu sein. Wir glauben daran,
+                dass eine großartige Website mehr ist als nur Code – sie ist das digitale
+                Gesicht Ihres Unternehmens.
+              </p>
+            </GlassCard>
+
+            {/* Preis-Philosophie */}
+            <GlassCard className="p-6 md:p-12">
+              <h2 className="text-2xl md:text-3xl mb-4 md:mb-6 text-center bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent font-bold">
+                Top Qualität – zum kleinsten Preis!
+              </h2>
+              <p className="text-base md:text-lg text-black/80 text-center leading-relaxed">
+                Wir möchten, dass Unternehmen jeder Größe online sichtbar werden können.
+                Deshalb bieten wir unsere Dienstleistungen zu den günstigsten Preisen in der Schweiz an.
+                Unser Ziel ist es, dass jedes Geschäft sein digitales Potenzial entfalten und effektiv
+                online werben kann – ohne das Budget zu belasten.
+              </p>
+            </GlassCard>
+          </div>
 
           {/* Team Members */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 mb-16 md:mb-20">

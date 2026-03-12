@@ -2,6 +2,8 @@ import { GlassCard } from '../components/GlassCard';
 import { Mail, Clock, MapPin, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { Instagram } from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa';
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -74,7 +76,12 @@ export function Contact() {
     {
       icon: Clock,
       title: 'Öffnungszeiten',
-      content: 'Mo-Fr: 9:00 - 18:00 Uhr',
+      content: (
+          <>
+            Mo-Fr: 16:30 - 21:00 Uhr<br />
+            Sa-So: 14:00 - 21:00 Uhr
+          </>
+          ),
       link: null,
     },
     {
@@ -138,11 +145,12 @@ export function Contact() {
               <GlassCard className="p-4 md:p-6">
                 <h3 className="font-semibold mb-3">Folgen Sie uns</h3>
                 <div className="flex gap-3">
-                  {['facebook', 'twitter', 'linkedin', 'instagram'].map((social) => (
-                      <a key={social} href="#" className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-colors">
-                        {social[0].toUpperCase()}
-                      </a>
-                  ))}
+                  <a href="#" className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-colors">
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <a href="#" className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-colors">
+                    <FaTiktok className="w-4 h-4" />
+                  </a>
                 </div>
               </GlassCard>
             </div>
